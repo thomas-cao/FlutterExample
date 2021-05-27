@@ -24,48 +24,50 @@ class MyHomePage extends StatelessWidget {
   }
 }
 
-/*
-加载本地图片
-1， 创建images 文件夹
-2，在pubspec.yaml 中配置 assets: 路径 (注意 这里的格式一定要和其他属性保持一致 不然可能无效)
-3， image: AssetImage("assets/images/xiaopang.jpg"), 加载图片
- */
+class MyHomeContent extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return HomeContentState();
+  }
+}
 
-class MyHomeContent extends StatelessWidget {
-  final url = "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg1.tgbusdata.cn%2Fthumbnail%2Fjpg%2FOTFiNSw2MDAsNjAwLDQsMSwxLC0xLDEsMSxyazUw%2Fu%2Fpc.tgbus.com%2Fuploads%2Fallimg%2F130710%2F252-130G0162152.jpg&refer=http%3A%2F%2Fimg1.tgbusdata.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1623246776&t=c90a0327589cb40b3385b12da9da0cc6";
+class HomeContentState extends State<MyHomeContent> {
+//  Padding 设置间距
+
+
   @override
   Widget build(BuildContext context) {
-    return ListView(children: [
-      // // 加载网络图片
-      Image.network(
-        "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg1.tgbusdata.cn%2Fthumbnail%2Fjpg%2FOTFiNSw2MDAsNjAwLDQsMSwxLC0xLDEsMSxyazUw%2Fu%2Fpc.tgbus.com%2Fuploads%2Fallimg%2F130710%2F252-130G0162152.jpg&refer=http%3A%2F%2Fimg1.tgbusdata.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1623246776&t=c90a0327589cb40b3385b12da9da0cc6",
-        alignment: Alignment.bottomCenter,
-      ),
-     // 加载本地图片
-     Image(
-       image: AssetImage("assets/images/xiaopang.jpg"),
-     ),
-     CircleAvatar(
-       radius: 120,
-       backgroundImage: NetworkImage("https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg1.tgbusdata.cn%2Fthumbnail%2Fjpg%2FOTFiNSw2MDAsNjAwLDQsMSwxLC0xLDEsMSxyazUw%2Fu%2Fpc.tgbus.com%2Fuploads%2Fallimg%2F130710%2F252-130G0162152.jpg&refer=http%3A%2F%2Fimg1.tgbusdata.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1623246776&t=c90a0327589cb40b3385b12da9da0cc6")
-     ),
-     ClipOval(
-       child: Image.network(
-         url,
-         width: 200,
-         height: 200,
-         ),
-     ),
-     ClipRRect(
-       borderRadius: BorderRadius.circular(30),
-       child: Image.network(
-         url,
-         width: 200,
-         height: 200,
-         fit: BoxFit.fill,
-         ),
-     )
+    return  Column(
+      children: [
+ Padding(
+      padding: EdgeInsets.all(0),
+      child: Text("姐你是才能到", style: TextStyle(color: Colors.red, fontSize: 25, backgroundColor: Colors.green),),
+    ),
+    Text("姐你是才能到", style: TextStyle(color: Colors.red, fontSize: 25, backgroundColor: Colors.green),),
+    Text("姐你是才能到", style: TextStyle(color: Colors.red, fontSize: 25, backgroundColor: Colors.green),),
+      ],
+    );
+    
+   
+  }
+}
 
-    ]);
+class AlignDemo extends StatelessWidget {
+  @override
+// Align 设置位置
+// center 继承自Align 并且所有处理都来着父类，父类中alignment 默认是 center (0 , 0)
+//  alignment 取值 -1 <-> 1 (0, 0) 默认在中心位置，而Align的默认区域时整个屏幕
+//  可通过 widthFactor & heightFactor 来设置 子控件的大小倍数
+
+  Widget build(BuildContext context) {
+    return Align(
+      alignment: Alignment.center,
+      widthFactor: 3,
+      heightFactor: 5,
+      child: Icon(
+        Icons.pets,
+        size: 100,
+      ),
+    );
   }
 }
