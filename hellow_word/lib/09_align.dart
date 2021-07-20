@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 
-main(List<String> args) {
-  runApp(MyApp());
-}
 
 // 快捷键 stl
 class MyApp extends StatelessWidget {
