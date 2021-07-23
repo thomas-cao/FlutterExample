@@ -86,7 +86,7 @@ class HomeStateContentVM extends State<HomeStateContent> {
               value: flag,
               onChanged: (value) {
                 setState(() {
-                  flag = value;
+                  flag = value!;
                 });
               }),
           Text("点击切换")
